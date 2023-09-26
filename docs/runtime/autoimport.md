@@ -1,6 +1,6 @@
 如果在工作目录或更高级目录中找不到`node_modules`目录，Bun 将放弃 Node.js 风格的模块解析，改用**Bun 模块解析算法**。
 
-在 Bun 风格的模块解析下，所有导入的包都会在执行过程中自动安装到[全局模块缓存](/docs/install/cache)中（与[`bun install`](/docs/cli/install)使用的相同缓存）。
+在 Bun 风格的模块解析下，所有导入的包都会在执行过程中自动安装到[全局模块缓存](/docs/install/cache.md)中（与[`bun install`](/docs/cli/install.md)使用的相同缓存）。
 
 ```ts
 import { foo } from "foo"; // 安装`latest`版本
@@ -56,20 +56,24 @@ import { z } from "zod@^3.20.0"; // semver范围
 
 ## 常见问题
 
-{% details summary="这与pnpm的工作原理有何不同?" %}
+<details>
+<summary>这与pnpm的工作原理有何不同?</summary>
 
 使用 pnpm 时，您必须运行`pnpm install`，它会创建一个包含符号链接的`node_modules`文件夹，以供运
 
 行时解析。相比之下，Bun 会在运行文件时动态解析依赖项；无需提前运行任何`install`命令。Bun 也不会创建`node_modules`文件夹。
 
-{% /details %}
+</details>
 
-{% details summary="这与Yarn Plug'N'Play有何不同?" %}
+<details>
+<summary>这与Yarn Plug'N'Play有何不同?</summary>
 使用 Yarn，您必须在运行脚本之前运行`yarn install`。相比之下，Bun 会在运行文件时动态解析依赖项；无需提前运行任何`install`命令。
 
 Yarn Plug'N'Play 还使用 zip 文件存储依赖项。这使得依赖项加载[运行时较慢](https://twitter.com/jarredsumner/status/1458207919636287490)，因为随机访问 zip 文件的读取速度往往比等效的磁盘查找慢。
-{% /details %}
 
-{% details summary="这与Deno的工作原理有何不同?" %}
+</details>
 
+<details>
+<summary>这与Deno的工作原理有何不同?</summary>
 Deno 要求在每个 npm`import`之前都要有`npm:`标识符，不支持通过`tsconfig.json`中的`compilerOptions.paths`进行导入映射，并且对`package.json`设置的支持不完整。与 Deno 不同，Bun 目前不支持 URL 导入。
+</details>

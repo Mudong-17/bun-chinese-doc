@@ -36,7 +36,7 @@ To get started, run:
 $ bun create <template> [<destination>]
 ```
 
-假设您没有与相同名称的[本地模板](#local-templates)，此命令将下载并执行来自 npm 的`create-<template>`包。以下两个命令将表现相同：
+假设您没有与相同名称的[本地模板](#从本地模板创建)，此命令将下载并执行来自 npm 的`create-<template>`包。以下两个命令将表现相同：
 
 ```sh
 $ bun create remix
@@ -123,19 +123,10 @@ $ cd foo
 
 以下字段受支持。每个字段可以对应一个字符串或字符串数组。字符串数组将按顺序执行。
 
-{% table %}
-
----
-
-- `postinstall`
-- 在安装依赖项后运行
-
----
-
-- `preinstall`
-- 在安装依赖项之前运行
-
-{% /table %}
+|               |                      |
+| ------------- | -------------------- |
+| `postinstall` | 在安装依赖项后运行   |
+| `preinstall`  | 在安装依赖项之前运行 |
 
 在克隆模板后，`bun create` 将自动从 `package.json` 中删除 `"bun-create"` 部分，然后将其写入目标文件夹。
 
@@ -143,53 +134,21 @@ $ cd foo
 
 ### CLI 标志
 
-{% table %}
-
-- 标志
-- 描述
-
----
-
-- `--force`
-- 覆盖现有文件
-
----
-
-- `--no-install`
-- 跳过安装 `node_modules` 和任务
-
----
-
-- `--no-git`
-- 不要初始化 Git 仓库
-
----
-
-- `--open`
-- 在完成后启动并在浏览器中打开
-
-{% /table %}
+| 标志           | 描述                           |
+| -------------- | ------------------------------ |
+| `--force`      | 覆盖现有文件                   |
+| `--no-install` | 跳过安装 `node_modules` 和任务 |
+| `--no-git`     | 不要初始化 Git 仓库            |
+| `--open`       | 在完成后启动并在浏览器中打开   |
 
 ### 环境变量
 
-{% table %}
+| 名称                | 描述                                                                    |
+| ------------------- | ----------------------------------------------------------------------- |
+| `GITHUB_API_DOMAIN` | 如果您使用的是 GitHub 企业版或代理，可以自定义 Bun 获取下载的 GitHub 域 |
+| `GITHUB_API_TOKEN`  | 这使得 `bun create` 可以与私有仓库一起使用，或者如果您被限制了速率      |
 
-- 名称
-- 描述
-
----
-
-- `GITHUB_API_DOMAIN`
-- 如果您使用的是 GitHub 企业版或代理，可以自定义 Bun 获取下载的 GitHub 域
-
----
-
-- `GITHUB_API_TOKEN`
-- 这使得 `bun create` 可以与私有仓库一起使用，或者如果您被限制了速率
-
-{% /table %}
-
-{% details summary=" `bun create` 的工作原理" %}
+> `bun create` 的工作原理
 
 当您运行 `bun create ${template} ${destination}` 时，以下情况会发生：
 

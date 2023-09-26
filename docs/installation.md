@@ -53,43 +53,6 @@ Bun 在每次提交到主分支时自动发布一个（未经测试的）canary 
 bun upgrade --canary
 ```
 
-## TypeScript
-
-要在项目中安装 Bun 内置 API 的 TypeScript 定义，请安装 `bun-types`。
-
-```bash
-bun add -d bun-types
-```
-
-然后在你的 `tsconfig.json` 文件的 `compilerOptions.types` 中包含 `"bun-types"`：
-
-```json
-{
-  "compilerOptions": {
-    "types": ["bun-types"]
-  }
-}
-```
-
-请参考 ["Ecosystem > TypeScript"]() 来获取有关 Bun 中 TypeScript 支持的完整指南。
-
-## 自动补全
-
-当安装 Bun 时，应该会自动配置 Shell 自动补全功能。
-
-如果没有自动配置，可以运行以下命令。它使用 `$SHELL` 来确定您正在使用哪种 Shell，并将一个自动补全文件写入适当的位置。它将在每次 Bun 升级时自动重新运行。
-
-```bash
-bun completions
-```
-
-要将自动补全写入自定义位置，可以使用以下命令，并在其中指定目标路径：
-
-```bash
-bun completions > path-to-file
-bun completions /path/to/directory
-```
-
 ## 卸载
 
 如果需要从系统中移除 Bun，可以使用以下命令：

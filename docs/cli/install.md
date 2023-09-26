@@ -6,20 +6,20 @@
 
 ![package install benchmark](https://user-images.githubusercontent.com/709451/147004342-571b6123-17a9-49a2-8bfd-dcfc5204047e.png)
 
-{% details summary="对于Linux用户" %}
-最低 Linux 内核版本为 5.1。如果您使用的是 Linux 内核 5.1 - 5.5，`bun install`仍然可以工作，但由于不支持 io_uring 的`connect()`操作，HTTP 请求将变得缓慢。
-
-如果您使用的是 Ubuntu 20.04，以下是如何安装[较新的内核](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)的方法：
-
-```bash
-# 如果返回的版本 >= 5.6，则无需执行任何操作
-uname -r
-
-# 安装官方Ubuntu硬件启用内核
-sudo apt install --install-recommends linux-generic-hwe-20.04
-```
-
-{% /details %}
+> 对于 Linux 用户
+>
+> 最低 Linux 内核版本为 5.1。如果您使用的是 Linux 内核 5.1 - 5.5，`bun install`仍然可以工作，但由于不支持 io_uring 的`connect()`操作，HTTP 请求将变得缓慢。
+>
+> 如果您使用的是 Ubuntu 20.04，以下是如何安装[较新的内核](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)的方法：
+>
+> ```bash
+> # 如果返回的版本 >= 5.6，则无需执行任何操作
+> uname -r
+>
+> # 安装官方Ubuntu硬件启用内核
+> sudo apt install --install-recommends
+> linux-generic-hwe-20.04
+> ```
 
 ## 管理依赖项
 
@@ -64,32 +64,30 @@ $ bun install --verbose # 调试日志
 $ bun install --silent  # 无日志
 ```
 
-{% details summary="配置行为" %}
-`bun install`的默认行为可以在`bunfig.toml`中配置：
+> 配置行为
+> `bun install`的默认行为可以在`bunfig.toml`中配置：
 
-```toml
-[install]
-
-# 是否安装 optionalDependencies
-optional = true
-
-# 是否安装 devDependencies
-dev = true
-
-# 是否安装 peerDependencies
-peer = false
-
-# 相当于 `--production` 标志
-production = false
-
-# 相当于 `--frozen-lockfile` 标志
-frozenLockfile = false
-
-# 相当于 `--dry-run` 标志
-dryRun = false
-```
-
-{% /details %}
+> ```toml
+> [install]
+>
+> # 是否安装 optionalDependencies
+> optional = true
+>
+> # 是否安装 devDependencies
+> dev = true
+>
+> # 是否安装 peerDependencies
+> peer = false
+>
+> # 相当于 `--production` 标志
+> production = false
+>
+> # 相当于 `--frozen-lockfile` 标志
+> frozenLockfile = false
+>
+> # 相当于 `--dry-run` 标志
+> dryRun = false
+> ```
 
 ### `bun add`
 
@@ -157,18 +155,16 @@ $ cowsay "Bun!"
                 ||     ||
 ```
 
-{% details summary="配置全局安装行为" %}
-
-```toml
-[install]
-# `bun install --global` 安装包的位置
-globalDir = "~/.bun/install/global"
-
-# 全局安装的包二进制文件链接的位置
-globalBinDir = "~/.bun/bin"
-```
-
-{% /details %}
+> 配置全局安装行为
+>
+> ```toml
+> [install]
+> # `bun install --global` 安装包的位置
+> globalDir = "~/.bun/install/global"
+>
+> # 全局安装的包二进制文件链接的位置
+> globalBinDir = "~/.bun/bin"
+> ```
 
 要查看给定命令的完整选项列表：
 

@@ -1,6 +1,7 @@
 所有从注册表下载的包都存储在全局缓存中，位于 `~/.bun/install/cache`。它们存储在子目录中，名称类似于 `${name}@${version}`，因此可以缓存多个版本的包。
 
-{% details summary="配置缓存行为" %}
+<details>
+<summary>配置缓存行为</summary>
 
 ```toml
 [install.cache]
@@ -15,19 +16,21 @@ disable = false
 disableManifest = false
 ```
 
-{% /details %}
+</details>
 
 ## 最小化重新下载
 
 Bun 努力避免多次重新下载包。在安装包时，如果缓存中已经包含了`package.json`指定范围内的版本，Bun 将使用缓存的包，而不是再次下载它。
 
-{% details summary="安装详细信息" %}
+<details>
+<summary>安装详细信息</summary>
 如果 semver 版本具有预发行后缀 (`1.0.0-beta.0`) 或构建后缀 (`1.0.0+20220101`)，它会被替换为该值的哈希值，以减少与长文件路径相关的错误的机会。
 
 当存在 `node_modules` 文件夹时，在安装之前，Bun 会检查 `node_modules` 是否包含所有预期包及其适当版本。如果是这样，`bun install` 完成。Bun 使用自定义 JSON 解析器，一旦找到`"name"`和`"version"`，它就停止解析。
 
 如果缺少一个包或其版本与 `package.json` 不兼容，Bun 会检查缓存中是否有一个兼容的模块。如果找到，它将安装到 `node_modules` 中。否则，将从注册表下载该包，然后进行安装。
-{% /details %}
+
+</details>
 
 ## 快速复制
 
@@ -39,7 +42,8 @@ Bun 努力避免多次重新下载包。在安装包时，如果缓存中已经�
 
 这个好处在性能原因上不适用于 macOS，macOS 出于性能原因使用 `clonefile`。
 
-{% details summary="安装策略" %}
+<details>
+<summary>安装策略</summary>
 此行为可以通过 `--backend` 标志进行配置，该标志由 Bun 的所有包管理命令所尊重。
 
 - **`hardlink`**：Linux 上的默认值。
@@ -58,4 +62,5 @@ $ node --preserve-symlinks ./foo.js
 ```
 
 Bun 的运行时目前尚未公开类似于 `--preserve-symlinks` 的等效功能。
-{% /details %}
+
+</details>

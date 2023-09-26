@@ -31,7 +31,7 @@ To get started, run:
 
 ## 运行文件
 
-打开 `index.ts` 并粘贴以下代码片段，它使用 [`Bun.serve`](/docs/api/http) 实现了一个简单的 HTTP 服务器。
+打开 `index.ts` 并粘贴以下代码片段，它使用 [`Bun.serve`](/docs/api/http.md) 实现了一个简单的 HTTP 服务器。
 
 ```ts
 const server = Bun.serve({

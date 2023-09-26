@@ -17,7 +17,7 @@ const myPlugin: BunPlugin = {
 };
 ```
 
-插件必须在任何其他代码运行之前注册！为了实现这一点，在您的[`bunfig.toml`](/docs/runtime/configuration)中使用`preload`选项。Bun 会在运行文件之前自动加载`preload`中指定的文件/模块。
+插件必须在任何其他代码运行之前注册！为了实现这一点，在您的[`bunfig.toml`](/docs/runtime/configuration.md)中使用`preload`选项。Bun 会在运行文件之前自动加载`preload`中指定的文件/模块。
 
 ```toml
 preload = ["./myPlugin.ts"]
@@ -86,7 +86,7 @@ plugin({
 
 使用这个插件，可以直接从`.yaml`文件中导入数据。
 
-{% codetabs %}
+<codetabs>
 
 ```ts#index.ts
 import "./yamlPlugin.ts"
@@ -100,71 +100,21 @@ name: Fast X
 releaseYear: 2023
 ```
 
-{% /codetabs %}
+</codetabs>
 
-请注意，返回的对象具有一个`loader`属性。这告诉 Bun 应使用其内部加载器之一来处理结果。即使我们正在实现一个`.yaml`的加载器，结果仍然必须能够被 Bun 内置加载器之一理解。在这个案例中，我们使用了`"object"`，这是一个内置加载器（供插件使用），它将普通的 JavaScript 对象转换为等效的 ES 模块。Bun 支持所有内置加载器；这些相同的加载器由 Bun 在内部用于处理各种文件。下面的表格是一个快速参考；完整文档请参阅 [Bundler > Loaders](/docs/bundler/loaders)。
+请注意，返回的对象具有一个`loader`属性。这告诉 Bun 应使用其内部加载器之一来处理结果。即使我们正在实现一个`.yaml`的加载器，结果仍然必须能够被 Bun 内置加载器之一理解。在这个案例中，我们使用了`"object"`，这是一个内置加载器（供插件使用），它将普通的 JavaScript 对象转换为等效的 ES 模块。Bun 支持所有内置加载器；这些相同的加载器由 Bun 在内部用于处理各种文件。下面的表格是一个快速参考；完整文档请参阅 [Bundler > Loaders](/docs/bundler/loaders.md)。
 
-{% table %}
-
-- 加载器
-- 扩展名
-- 输出
-
----
-
-- `js`
-- `.mjs` `.cjs`
-- 转译为 JavaScript 文件
-
----
-
-- `jsx`
-- `.js` `.jsx`
-- 转换 JSX 然后转译
-
----
-
-- `ts`
-- `.ts` `.mts` `.cts`
-- 转换 TypeScript 然后转译
-
----
-
-- `tsx`
-- `.tsx`
-- 转换 TypeScript、JSX，然后转译
-
----
-
-- `toml`
-- `.toml`
-- 使用 Bun 内置的 TOML 解析器解析
-
----
-
-- `json`
-- `.json`
-- 使用 Bun 内置的 JSON 解析器解析
-
----
-
-- `napi`
-- `.node`
-- 导入本机 Node.js 插件
-
----
-
-- `wasm`
-- `.wasm`
-- 导入本机 Node.js 插件
-
----
-
-- `object`
-- _无_
-- 一个专用于插件的特殊加载器，将普通的 JavaScript 对象转换为等效的 ES 模块。对象中的每个键对应一个命名导出。
-
-{% /callout %}
+| 加载器   | 扩展名              | 输出                                                                                                       |
+| -------- | ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `js`     | `.mjs` `.cjs`       | 转译为 JavaScript 文件                                                                                     |
+| `jsx`    | `.js` `.jsx`        | 转换 JSX 然后转译                                                                                          |
+| `ts`     | `.ts` `.mts` `.cts` | 转换 TypeScript 然后转译                                                                                   |
+| `tsx`    | `.tsx`              | 转换 TypeScript、JSX，然后转译                                                                             |
+| `toml`   | `.toml`             | 使用 Bun 内置的 TOML 解析器解析                                                                            |
+| `json`   | `.json`             | 使用 Bun 内置的 JSON 解析器解析                                                                            |
+| `napi`   | `.node`             | 导入本机 Node.js 插件                                                                                      |
+| `wasm`   | `.wasm`             | 导入本机 Node.js 插件                                                                                      |
+| `object` | _无_                | 一个专用于插件的特殊加载器，将普通的 JavaScript 对象转换为等效的 ES 模块。对象中的每个键对应一个命名导出。 |
 
 加载一个 YAML 文件是有用的，但插件支持的不仅仅是数据加载。让我们看一个允许 Bun 导入`*.svelte`文件的插件示例。
 
@@ -214,7 +164,7 @@ console.log(mySvelteComponent.render());
 
 ## 读取配置
 
-插件可以通过`build.config`读取和写入[构建配置](/docs/bundler#api)。
+插件可以通过`build.config`读取和写入[构建配置](/docs/bundler/index.md#api)。
 
 ```ts
 Bun.build({

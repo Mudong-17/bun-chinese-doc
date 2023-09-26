@@ -22,25 +22,25 @@ bunx cowsay "Hello, world!"  # 执行一个包
 
 可以通过以下快速链接之一开始使用，或继续阅读了解有关 Bun 的更多信息。
 
-[安装 Bun]()
+[安装 Bun](./installation.md)
 
-[安装包]()
+[快速入门](./quickstart.md)
 
-[将代码打包用于生产环境]()
+[安装包](./cli/install.md)
 
-[构建一个 WebSocket 服务器]()
+[使用项目模板](./templates.md)
 
-[运行 SQLite 查询]()
+[将代码打包用于生产环境](./bundler/index.md)
 
-[快速入门]()
+[构建一个 HTTP 服务器](./api/http.md)
 
-[使用项目模板]()
+[构建一个 WebSocket 服务器](./api/websockets.md)
 
-[构建一个 HTTP 服务器]()
+[读取和写入文件](./api/file-io.md)
 
-[读取和写入文件]()
+[运行 SQLite 查询](./api/sqlite.md)
 
-[编写并运行测试]()
+[编写并运行测试](./cli/test.md)
 
 ## 什么是运行时
 

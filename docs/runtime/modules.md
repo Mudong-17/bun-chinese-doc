@@ -101,8 +101,8 @@ const { bar } = require("./bar.mjs");
 const { baz } = require("./baz.tsx");
 ```
 
-{% details summary="什么是CommonJS模块？" %}
-
+<details>
+<summary>什么是CommonJS模块?</summary>
 在 2016 年，ECMAScript 添加了对[ES 模块](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)的支持。ES 模块是 JavaScript 模块的标准。然而，数百万的 npm 包仍然使用 CommonJS 模块。
 
 CommonJS 模块是使用`module.exports`导出值的模块。通常，使用`require`来导入 CommonJS 模块。
@@ -120,7 +120,7 @@ CommonJS 模块与 ES 模块的最大区别在于，CommonJS 模块是同步的�
 - 浏览器不原生支持 CommonJS 模块，但通过`<script type="module">`可以原生支持 ES 模块。
 - CommonJS 模块不是静态可分析的，而 ES 模块只允许静态导入和导出。
 
-{% /details %}
+</details>
 
 ### 使用`import`
 
@@ -190,9 +190,7 @@ Bun 支持子路径[`"exports"`](https://nodejs.org/api/packages.html#subpath-ex
 }
 ```
 
-{% callout %}
-**发布 TypeScript** — 请注意，Bun 支持特殊的`"bun"`导出条件。如果你的库是用 TypeScript 编写的，你可以直接将（未经转译的）TypeScript 文件发布到 npm。如果在`"bun"`条件中指定了你的包的`*.ts`入口点，Bun 将直接导入和执行你的 TypeScript 源文件。
-{% /callout %}
+> **发布 TypeScript** — 请注意，Bun 支持特殊的`"bun"`导出条件。如果你的库是用 TypeScript 编写的，你可以直接将（未经转译的）TypeScript 文件发布到 npm。如果在`"bun"`条件中指定了你的包的`*.ts`入口点，Bun 将直接导入和执行你的 TypeScript 源文件。
 
 如果未定义`exports`，Bun 会回退到`"module"`（仅适用于 ESM 导入）然后是[`"main"`](https://nodejs.org/api/packages.html#main)。
 

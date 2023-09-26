@@ -136,9 +136,7 @@ console.log(`The current Git commit hash is 3ee3259104f`);
 
 #### 捆绑时进行 `fetch()` 请求
 
-在此示例中，我们使用 `fetch()` 进行出站 HTTP 请求，使用 `HTMLRewriter` 解析 HTML 响应，并在捆绑时返回包含标题和元标签的对象
-
-：
+在此示例中，我们使用 `fetch()` 进行出站 HTTP 请求，使用 `HTMLRewriter` 解析 HTML 响应，并在捆绑时返回包含标题和元标签的对象：
 
 ```ts
 export async function extractMetaTags(url: string) {
