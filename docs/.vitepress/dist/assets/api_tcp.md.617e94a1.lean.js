@@ -1,0 +1,29 @@
+import{_ as p,C as o,o as e,c,H as t,w as r,Q as a,k as s,a as n}from"./chunks/framework.33544f09.js";const v=JSON.parse('{"title":"TCP sockets","description":"","frontmatter":{"outline":"deep"},"headers":[],"relativePath":"api/tcp.md","filePath":"api/tcp.md"}'),E={name:"api/tcp.md"},y=a("",21),i=s("div",{class:"language-ts vp-adaptive-theme"},[s("button",{title:"Copy Code",class:"copy"}),s("span",{class:"lang"},"ts"),s("pre",{class:"shiki github-dark vp-code-dark"},[s("code",null,[s("span",{class:"line"},[s("span",{style:{color:"#F97583"}},"const"),s("span",{style:{color:"#E1E4E8"}}," "),s("span",{style:{color:"#79B8FF"}},"server"),s("span",{style:{color:"#E1E4E8"}}," "),s("span",{style:{color:"#F97583"}},"="),s("span",{style:{color:"#E1E4E8"}}," Bun."),s("span",{style:{color:"#B392F0"}},"listen"),s("span",{style:{color:"#E1E4E8"}},"({ "),s("span",{style:{color:"#6A737D"}},"/* 配置 */"),s("span",{style:{color:"#E1E4E8"}}," })")]),n(`
+`),s("span",{class:"line"}),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#6A737D"}},"// 重新加载所有活动服务器端套接字的处理程序")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"server."),s("span",{style:{color:"#B392F0"}},"reload"),s("span",{style:{color:"#E1E4E8"}},"({")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"  socket: {")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"    "),s("span",{style:{color:"#B392F0"}},"data"),s("span",{style:{color:"#E1E4E8"}},"(){")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"      "),s("span",{style:{color:"#6A737D"}},"// 新的'data'处理程序")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"    }")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"  }")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"})")])])]),s("pre",{class:"shiki github-light vp-code-light"},[s("code",null,[s("span",{class:"line"},[s("span",{style:{color:"#D73A49"}},"const"),s("span",{style:{color:"#24292E"}}," "),s("span",{style:{color:"#005CC5"}},"server"),s("span",{style:{color:"#24292E"}}," "),s("span",{style:{color:"#D73A49"}},"="),s("span",{style:{color:"#24292E"}}," Bun."),s("span",{style:{color:"#6F42C1"}},"listen"),s("span",{style:{color:"#24292E"}},"({ "),s("span",{style:{color:"#6A737D"}},"/* 配置 */"),s("span",{style:{color:"#24292E"}}," })")]),n(`
+`),s("span",{class:"line"}),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#6A737D"}},"// 重新加载所有活动服务器端套接字的处理程序")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"server."),s("span",{style:{color:"#6F42C1"}},"reload"),s("span",{style:{color:"#24292E"}},"({")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"  socket: {")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"    "),s("span",{style:{color:"#6F42C1"}},"data"),s("span",{style:{color:"#24292E"}},"(){")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"      "),s("span",{style:{color:"#6A737D"}},"// 新的'data'处理程序")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"    }")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"  }")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"})")])])])],-1),F=s("div",{class:"language-ts vp-adaptive-theme"},[s("button",{title:"Copy Code",class:"copy"}),s("span",{class:"lang"},"ts"),s("pre",{class:"shiki github-dark vp-code-dark"},[s("code",null,[s("span",{class:"line"},[s("span",{style:{color:"#F97583"}},"const"),s("span",{style:{color:"#E1E4E8"}}," "),s("span",{style:{color:"#79B8FF"}},"socket"),s("span",{style:{color:"#E1E4E8"}}," "),s("span",{style:{color:"#F97583"}},"="),s("span",{style:{color:"#E1E4E8"}}," Bun."),s("span",{style:{color:"#B392F0"}},"connect"),s("span",{style:{color:"#E1E4E8"}},"({ "),s("span",{style:{color:"#6A737D"}},"/* 配置 */"),s("span",{style:{color:"#E1E4E8"}}," })")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"socket."),s("span",{style:{color:"#B392F0"}},"reload"),s("span",{style:{color:"#E1E4E8"}},"({")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"  "),s("span",{style:{color:"#B392F0"}},"data"),s("span",{style:{color:"#E1E4E8"}},"(){")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"    "),s("span",{style:{color:"#6A737D"}},"// 新的'data'处理程序")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"  }")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#E1E4E8"}},"})")])])]),s("pre",{class:"shiki github-light vp-code-light"},[s("code",null,[s("span",{class:"line"},[s("span",{style:{color:"#D73A49"}},"const"),s("span",{style:{color:"#24292E"}}," "),s("span",{style:{color:"#005CC5"}},"socket"),s("span",{style:{color:"#24292E"}}," "),s("span",{style:{color:"#D73A49"}},"="),s("span",{style:{color:"#24292E"}}," Bun."),s("span",{style:{color:"#6F42C1"}},"connect"),s("span",{style:{color:"#24292E"}},"({ "),s("span",{style:{color:"#6A737D"}},"/* 配置 */"),s("span",{style:{color:"#24292E"}}," })")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"socket."),s("span",{style:{color:"#6F42C1"}},"reload"),s("span",{style:{color:"#24292E"}},"({")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"  "),s("span",{style:{color:"#6F42C1"}},"data"),s("span",{style:{color:"#24292E"}},"(){")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"    "),s("span",{style:{color:"#6A737D"}},"// 新的'data'处理程序")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"  }")]),n(`
+`),s("span",{class:"line"},[s("span",{style:{color:"#24292E"}},"})")])])])],-1),d=a("",8);function u(k,B,C,h,A,q){const l=o("codetabs");return e(),c("div",null,[y,t(l,null,{default:r(()=>[i,F]),_:1}),d])}const D=p(E,[["render",u]]);export{v as __pageData,D as default};
