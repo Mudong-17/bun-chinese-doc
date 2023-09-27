@@ -7,10 +7,10 @@ outline: "deep"
 Bun 的快速本地打包器现在处于测试阶段。可以通过`bun build`命令行命令或`Bun.build()`JavaScript API 来使用它。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './build',
+  entrypoints: ["./index.tsx"],
+  outdir: "./build",
 });
 ```
 
@@ -37,18 +37,18 @@ $ bun build ./index.tsx --outdir ./build
 让我们构建我们的第一个包。你有以下两个文件，它们实现了一个简单的客户端渲染的 React 应用程序。
 
 ```tsx
-#index.tsx
-import * as ReactDOM from 'react-dom/client';
-import {Component} from "./Component"
+#index.tsx;
+import * as ReactDOM from "react-dom/client";
+import { Component } from "./Component";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Component message="Sup!" />)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Component message="Sup!" />);
 ```
 
 ```tsx
-#Component.tsx
-export function Component(props: {message: string}) {
-  return <p>{props.message}</p>
+#Component.tsx;
+export function Component(props: { message: string }) {
+  return <p>{props.message}</p>;
 }
 ```
 
@@ -57,11 +57,11 @@ export function Component(props: {message: string}) {
 要创建我们的包：
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
-})
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
+});
 ```
 
 ```bash
@@ -143,8 +143,6 @@ $ bun build ./index.tsx --outdir ./out --watch
 
 与 Bun 运行时一样，打包器本地支持一系列的文件类型。以下表格详细介绍了打包器的标准“加载器”集合。有关完整文档，请参阅[Bundler > 文件类型](/runtime/loaders)。
 
-下面是您提供的内容转换为 Markdown 表格的结果：
-
 | 扩展名                                         | 详情                                                                                                                                                                                                                               |
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `.js` `.cjs` `.mjs` `.mts` `.cts` `.ts` `.tsx` | 使用 Bun 内置的转换器解析文件，并将 TypeScript/JSX 语法转译为普通的 JavaScript。打包器执行一组默认转换，包括死代码消除、树摇和环境变量内联。目前，Bun 不会尝试降级语法；如果您使用最近的 ECMAScript 语法，它将反映在打包的代码中。 |
@@ -153,21 +151,19 @@ $ bun build ./index.tsx --outdir ./out --watch
 | `.txt`                                         | 文本文件的内容被读取并内联到包中作为字符串。                                                                                                                                                                                       |
 | `.node` `.wasm`                                | 这些文件在 Bun 运行时中受支持，但在打包时被视为[资源](#资源)。                                                                                                                                                                     |
 
-请注意，Markdown 表格中的标题行是由第一个列表项定义的，而列表项之间的分割线是由`---`行定义的。
-
 ### 资源
 
 如果打包器遇到一个带有未识别扩展名的导入，它会将被导入的文件视为*外部文件*。引用的文件会原样复制到`outdir`中，导入将被解析为文件的路径。
 
 ```ts
-#Input
+#Input;
 // bundle入口点
 import logo from "./logo.svg";
 console.log(logo);
 ```
 
 ```ts
-#Output
+#Output;
 // 打包输出
 var logo = "./logo-ab237dfe.svg";
 console.log(logo);
@@ -188,7 +184,7 @@ console.log(logo);
 **必需项。**一个数组，其中包含我们应用程序的入口点的路径。将为每个入口点生成一个包。
 
 ```ts
-#JavaScript
+#JavaScript;
 const result = await Bun.build({
   entrypoints: ["./index.ts"],
 });
@@ -207,10 +203,10 @@ $ bun build --entrypoints ./index.ts
 将输出文件写入的目录。
 
 ```ts
-#JavaScript
+#JavaScript;
 const result = await Bun.build({
-  entrypoints: ['./index.ts'],
-  outdir: './out'
+  entrypoints: ["./index.ts"],
+  outdir: "./out",
 });
 // => { success: boolean, outputs: BuildArtifact[], logs: BuildMessage[] }
 ```
@@ -247,12 +243,12 @@ for (const result of result.outputs) {
 捆绑包的预期执行环境。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.ts'],
-  outdir: './out',
-  target: 'browser', // 默认值
-})
+  entrypoints: ["./index.ts"],
+  outdir: "./out",
+  target: "browser", // 默认值
+});
 ```
 
 ```bash
@@ -279,12 +275,12 @@ $ bun build --entrypoints ./index.ts --outdir ./out --target browser
 目前，打包器仅支持一种模块格式：`"esm"`。计划支持`"cjs"`和`"iife"`。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   format: "esm",
-})
+});
 ```
 
 ```bash
@@ -297,12 +293,12 @@ $ bun build ./index.tsx --outdir ./out --format esm
 是否启用代码分割。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   splitting: false, // 默认值
-})
+});
 ```
 
 ```bash
@@ -313,29 +309,29 @@ $ bun build ./index.tsx --outdir ./out --splitting
 当设置为`true`时，打包器将启用 _代码分割_。当多个入口点都导入相同的文件、模块或一组文件/模块时，将这些共享代码拆分到一个单独的包中通常很有用。这个共享的包被称为 _chunk_。考虑以下文件：
 
 ```ts
-#entry-a.ts
-import { shared } from './shared.ts';
+#entry - a.ts;
+import { shared } from "./shared.ts";
 ```
 
 ```ts
-#entry-b.ts
-import { shared } from './shared.ts';
+#entry - b.ts;
+import { shared } from "./shared.ts";
 ```
 
 ```ts
-#shared.ts
-export const shared = 'shared';
+#shared.ts;
+export const shared = "shared";
 ```
 
 启用代码拆分的情况下，要捆绑`entry-a.ts`和`entry-b.ts`：
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./entry-a.ts', './entry-b.ts'],
-  outdir: './out',
+  entrypoints: ["./entry-a.ts", "./entry-b.ts"],
+  outdir: "./out",
   splitting: true,
-})
+});
 ```
 
 ```bash
@@ -364,12 +360,14 @@ $ bun build ./entry-a.ts ./entry-b.ts --outdir ./out --splitting
 要在捆绑过程中使用的插件列表。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
-  plugins: [/* ... */],
-})
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
+  plugins: [
+    /* ... */
+  ],
+});
 ```
 
 ```bash
@@ -384,12 +382,12 @@ Bun 实现了一个通用的插件系统，可用于 Bun 的运行时和打包�
 指定要生成的源映射的类型。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   sourcemap: "external", // 默认值是 "none"
-})
+});
 ```
 
 ```bash
@@ -422,12 +420,12 @@ $ bun build ./index.tsx --outdir ./out --sourcemap=external
 要启用所有缩小选项：
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   minify: true, // 默认值是 false
-})
+});
 ```
 
 ```bash
@@ -438,16 +436,16 @@ $ bun build ./index.tsx --outdir ./out --minify
 要逐个启用某些缩小选项：
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   minify: {
     whitespace: true,
     identifiers: true,
     syntax: true,
   },
-})
+});
 ```
 
 ```bash
@@ -460,12 +458,12 @@ $ bun build ./index.tsx --outdir ./out --minify-whitespace --minify-identifiers 
 要考虑为“外部”的导入路径列表。默认值为`[]`。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   external: ["lodash", "react"], // 默认值: []
-})
+});
 ```
 
 ```bash
@@ -478,12 +476,12 @@ $ bun build ./index.tsx --outdir ./out --external lodash --external react
 自定义生成的文件名。默认为`./[dir]/[name].[ext]`。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   naming: "[dir]/[name].[ext]", // 默认值
-})
+});
 ```
 
 ```bash
@@ -530,12 +528,12 @@ $ bun build ./index.tsx --outdir ./out --entry-naming [dir]/[name].[ext]
 我们可以组合这些标记以创建一个模板字符串。例如，要在生成的捆绑包名称中包含哈希：
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
-  naming: 'files/[dir]/[name]-[hash].[ext]',
-})
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
+  naming: "files/[dir]/[name]-[hash].[ext]",
+});
 ```
 
 ```bash
@@ -556,25 +554,23 @@ $ bun build ./index.tsx --outdir ./out --entry-naming [name]-[hash].[ext]
 当为`naming`字段提供一个字符串时，它仅用于与入口点对应的捆绑包。分块和复制的资产的名称不受影响。使用 JavaScript API，可以为每种生成的文件类型指定单独的模板字符串。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   naming: {
     // 默认值
-    entry: '[dir]/[name].[ext]',
-    chunk: '[name]-[hash].[ext]',
-    asset: '[name]-[hash].[ext]',
+    entry: "[dir]/[name].[ext]",
+    chunk: "[name]-[hash].[ext]",
+    asset: "[name]-[hash].[ext]",
   },
-})
+});
 ```
 
 ```bash
 #CLI
 $ bun build ./index.tsx --outdir ./out --entry-naming "[dir]/[name].[ext]" --chunk-naming "[name]-[hash].[ext]" --asset-naming "[name]-[hash].[ext]"
 ```
-
-以下是文档中除代码部分的内容的翻译：
 
 ### `root`
 
@@ -592,11 +588,11 @@ $ bun build ./index.tsx --outdir ./out --entry-naming "[dir]/[name].[ext]" --chu
 我们可以构建`pages`目录中的两个入口点：
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./pages/index.tsx', './pages/settings.tsx'],
-  outdir: './out',
-})
+  entrypoints: ["./pages/index.tsx", "./pages/settings.tsx"],
+  outdir: "./out",
+});
 ```
 
 ```bash
@@ -621,12 +617,12 @@ $ bun build ./pages/index.tsx ./pages/settings.tsx --outdir ./out
 可以通过指定`root`选项来覆盖此行为：
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./pages/index.tsx', './pages/settings.tsx'],
-  outdir: './out',
-  root: '.',
-})
+  entrypoints: ["./pages/index.tsx", "./pages/settings.tsx"],
+  outdir: "./out",
+  root: ".",
+});
 ```
 
 ```bash
@@ -660,28 +656,28 @@ $ bun build ./pages/index.tsx ./pages/settings.tsx --outdir ./out --root .
 在这些情况下，最终捆绑包可能会包含指向其他文件的路径。默认情况下，这些导入是相对的。以下是一个简单资源导入的示例：
 
 ```ts
-#Input
-import logo from './logo.svg';
+#Input;
+import logo from "./logo.svg";
 console.log(logo);
 ```
 
 ```ts
-#Output
+#Output;
 // 将logo.svg复制到<outdir>
 // 并添加哈希以防止冲突
-var logo = './logo-a7305bdef.svg';
+var logo = "./logo-a7305bdef.svg";
 console.log(logo);
 ```
 
 通过设置`publicPath`，将在所有文件路径前添加指定的值。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
-  publicPath: 'https://cdn.example.com/', // 默认为未定义
-})
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
+  publicPath: "https://cdn.example.com/", // 默认为未定义
+});
 ```
 
 输出文件现在将类似于以下内容：
@@ -697,15 +693,15 @@ await Bun.build({
 全局标识符的映射，用于在构建时替换。此对象的键是标识符名称，值是将内联的 JSON 字符串。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   define: {
     STRING: JSON.stringify("value"),
     "nested.boolean": "true",
   },
-})
+});
 ```
 
 ### `loader`
@@ -713,15 +709,15 @@ await Bun.build({
 文件扩展名到[内置加载器名称](https://bun.sh/docs/bundler/loaders#built-in-loaders)的映射。这可用于快速自定义某些文件的加载方式。
 
 ```ts
-#JavaScript
+#JavaScript;
 await Bun.build({
-  entrypoints: ['./index.tsx'],
-  outdir: './out',
+  entrypoints: ["./index.tsx"],
+  outdir: "./out",
   loader: {
     ".png": "dataurl",
     ".txt": "file",
   },
-})
+});
 ```
 
 ## 输出
